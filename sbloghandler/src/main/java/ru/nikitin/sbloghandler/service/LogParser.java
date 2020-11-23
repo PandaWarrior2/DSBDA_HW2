@@ -1,7 +1,6 @@
 package ru.nikitin.sbloghandler.service;
 
 import com.datastax.driver.core.utils.UUIDs;
-import org.joda.time.DateTime;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -9,6 +8,7 @@ import ru.nikitin.sbloghandler.dto.LogDTO;
 
 import java.io.File;
 import java.io.IOException;
+import java.sql.Timestamp;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -49,7 +49,7 @@ public class LogParser {
                     SimpleDateFormat formatter = new SimpleDateFormat("MMM dd HH:mm:ss", Locale.US);
                     Date dt = formatter.parse(matcher.group(1));
                     dt.setYear(new Date(System.currentTimeMillis()).getYear());
-                    DateTime timestamp = new DateTime(dt.getTime());
+                    Timestamp timestamp = new Timestamp(dt.getTime());
                     String hostname = matcher.group(2);
                     String process = matcher.group(3);
                     String message = matcher.group(4);
@@ -62,7 +62,6 @@ public class LogParser {
                         }
                     }
                     long id = UUIDs.timeBased().timestamp();
-                    System.out.println(priority);
                     LogDTO dto = new LogDTO(id, timestamp, hostname, process, message, priority);
                     rowList.add(dto);
                 }

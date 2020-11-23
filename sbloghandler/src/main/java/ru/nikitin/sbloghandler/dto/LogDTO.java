@@ -5,6 +5,7 @@ import lombok.Data;
 import org.joda.time.DateTime;
 
 import java.io.Serializable;
+import java.sql.Timestamp;
 
 /**
  * POJO входных данных (логов)*/
@@ -12,7 +13,7 @@ import java.io.Serializable;
 @AllArgsConstructor
 public class LogDTO implements Serializable {
     private Long id;
-    private DateTime datetime;
+    private Timestamp datetime;
     private String hostname;
     private String process;
     private String message;

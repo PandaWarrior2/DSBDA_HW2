@@ -21,7 +21,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Класс конфигурации кафки*/
+ * Класс конфигурации кафки
+ */
 @Configuration
 @EnableKafka
 @RequiredArgsConstructor
@@ -37,7 +38,8 @@ public class KafkaConfig {
     }
 
     /**
-     * Бин используемого кафка топика, если топик не существует, создаётся новый*/
+     * Бин используемого кафка топика, если топик не существует, создаётся новый
+     */
     @Bean
     public NewTopic topicApp() {
         return TopicBuilder.name(kafkaProperties.getTopic())
@@ -55,7 +57,8 @@ public class KafkaConfig {
     }
 
     /**
-     * Метод выдачи конифгурации кафка-продьюсера*/
+     * Метод выдачи конифгурации кафка-продьюсера
+     */
     private Map<String, Object> producerConfigs() {
         Map<String, Object> props = new HashMap<>();
         props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, kafkaProperties.getBootstrapServers());

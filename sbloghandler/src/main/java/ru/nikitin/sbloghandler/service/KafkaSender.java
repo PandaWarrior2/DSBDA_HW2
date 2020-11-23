@@ -27,10 +27,11 @@ public class KafkaSender {
     /**
      * Метод отправки логов из входного файла в кафку
      * @param messageFile - путь до входного файла */
-    public void sendLogs(String messageFile) {
+    public List<LogDTO> sendLogs(String messageFile) {
         File logFile = new File(messageFile);
         List<LogDTO> rowList = csvService.parseLog(logFile);
         rowList.forEach(this::send);
+        return rowList;
     }
 
     /**

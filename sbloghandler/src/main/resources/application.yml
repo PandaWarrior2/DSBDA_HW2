@@ -5,6 +5,7 @@ kafka:
   bootstrap-servers: 172.18.0.1:32770
 cassandra:
   connection-host: 127.0.0.1
+  port: 9042
   key-space: linux_logs
   table: logs
 spark:
