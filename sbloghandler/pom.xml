@@ -22,10 +22,12 @@
         <spark.cassandra.version>1.5.2</spark.cassandra.version>
         <commons.csv.version>1.8</commons.csv.version>
         <metrics.core.version>3.2.2</metrics.core.version>
-        <cassandra-driver-core.version>2.1.5</cassandra-driver-core.version>
+        <cassandra-driver-core.version>3.0.0</cassandra-driver-core.version>
         <cassandra-unit-spring.version>2.1.9.2</cassandra-unit-spring.version>
         <cassandra-unit-shaded.version>2.1.9.2</cassandra-unit-shaded.version>
         <hector-core.version>2.0-0</hector-core.version>
+        <spring.test.version>5.2.9.RELEASE</spring.test.version>
+        <guava.version>18.0</guava.version>
     </properties>
 
     <dependencies>
@@ -88,17 +90,6 @@
                 </exclusion>
             </exclusions>
         </dependency>
-        <!--<dependency>
-            <groupId>com.datastax.spark</groupId>
-            <artifactId>spark-cassandra-connector-java_2.11</artifactId>
-            <version>${spark.cassandra.version}</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.apache.cassandra</groupId>
-                    <artifactId>cassandra-clientutil</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>-->
         <dependency>
             <groupId>io.dropwizard.metrics</groupId>
             <artifactId>metrics-core</artifactId>
@@ -114,23 +105,18 @@
         <dependency>
             <groupId>com.datastax.cassandra</groupId>
             <artifactId>cassandra-driver-core</artifactId>
-            <version>3.0.0</version>
+            <version>${cassandra-driver-core.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-test</artifactId>
-            <version>5.2.9.RELEASE</version>
+            <version>${spring.test.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
-            <version>18.0</version>
-        </dependency>
-        <dependency>
-            <groupId>joda-time</groupId>
-            <artifactId>joda-time</artifactId>
-            <version>2.10</version>
+            <version>${guava.version}</version>
         </dependency>
     </dependencies>
 
